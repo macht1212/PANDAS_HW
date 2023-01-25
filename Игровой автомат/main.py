@@ -64,5 +64,5 @@ while players_money != 0:
     if players_money == 0:
         print('You lose all money!')
         print(f'You had {count} games')
-        print(f'You won {wins}CU per all games')
+        print(f'You won {wins} times per all games')
 
