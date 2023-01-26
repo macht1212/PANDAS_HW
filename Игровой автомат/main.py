@@ -1,17 +1,9 @@
 from numpy import random
 import re
 
-players_money = 1000000
-wins = 0
-wins777 = 0
-wins999 = 0
-wins555 = 0
-wins333 = 0
-wins111 = 0
-wins0 = 0
-wins00 = 0
-wins7 = 0
-wins77 = 0
+init_bank = 10000
+
+
 
 win = {
     '777': 200,
@@ -21,7 +13,7 @@ win = {
     '111': 10
 }
 
-count = 0
+
 
 
 def play():
@@ -77,26 +69,51 @@ def check(res):
         wins77 += 1
 
 
-while players_money != 0:
-    count += 1
-    play()
-    res = number()
-    check(res)
-    print(res)
-    print(f'Your score {players_money}\n')
-    if players_money == 0:
-        print('You lose all money!')
-        print(f'You had {count} games')
-        print(f'You won {wins} times per all games')
-        print(f'Conversion is {(wins/count)*100}%\n')
-        print(f'777 was {wins777} times, frequency {wins777/count}')
-        print(f'999 was {wins999} times, frequency {wins999/count}')
-        print(f'555 was {wins555} times, frequency {wins555/count}')
-        print(f'333 was {wins333} times, frequency {wins333/count}')
-        print(f'111 was {wins111} times, frequency {wins111/count}')
-        print(f'**0 was {wins0} times, frequency {wins0/count}')
-        print(f'*00 was {wins00} times, frequency {wins00/count}')
-        print(f'**7 was {wins7} times, frequency {wins7/count}')
-        print(f'*77 was {wins77} times, frequency {wins77/count}')
+for i in range(50):
+    players_money = 10000
+    wins = 0
+    wins777 = 0
+    wins999 = 0
+    wins555 = 0
+    wins333 = 0
+    wins111 = 0
+    wins0 = 0
+    wins00 = 0
+    wins7 = 0
+    wins77 = 0
+    count = 0
+    while players_money != 0:
+        count += 1
+        play()
+        res = number()
+        check(res)
+        print(res)
+        print(f'Your score {players_money}\n')
+        if players_money == 0:
+            print('You lose all money!')
+            print(f'You had {count} games')
+            print(f'You won {wins} times per all games')
+            print(f'Conversion is {(wins / count) * 100}%\n')
+            print(f'777 was {wins777} times, frequency {wins777 / count}')
+            print(f'999 was {wins999} times, frequency {wins999 / count}')
+            print(f'555 was {wins555} times, frequency {wins555 / count}')
+            print(f'333 was {wins333} times, frequency {wins333 / count}')
+            print(f'111 was {wins111} times, frequency {wins111 / count}')
+            print(f'**0 was {wins0} times, frequency {wins0 / count}')
+            print(f'*00 was {wins00} times, frequency {wins00 / count}')
+            print(f'**7 was {wins7} times, frequency {wins7 / count}')
+            print(f'*77 was {wins77} times, frequency {wins77 / count}')
 
-
+            with open('data.txt', 'a') as file:
+                file.write(f'count,{count}\n')
+                file.write(f'wins,{wins}\n')
+                file.write(f'conversion,{(wins / count) * 100}\n')
+                file.write(f'777,{wins777}\n')
+                file.write(f'999,{wins999}\n')
+                file.write(f'555,{wins555}\n')
+                file.write(f'333,{wins333}\n')
+                file.write(f'111,{wins111}\n')
+                file.write(f'*77,{wins77}\n')
+                file.write(f'**7,{wins7}\n')
+                file.write(f'*00,{wins00}\n')
+                file.write(f'**0,{wins0}\n')
