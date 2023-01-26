@@ -1,7 +1,7 @@
 from numpy import random
 import re
 
-players_money = 100
+players_money = 1000000
 wins = 0
 
 win = {
@@ -65,4 +65,5 @@ while players_money != 0:
         print('You lose all money!')
         print(f'You had {count} games')
         print(f'You won {wins} times per all games')
+        print(f'Conversion is {(wins/count)*100}%')
 
